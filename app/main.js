@@ -22,7 +22,12 @@ getData();
 
 const URL = "https://api.chess.com/pub/leaderboards";
 async function getData(URL) {
-  const response = await fetch(URL);
-  console.log(response);
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data /*.live_blitz.player_id*/);
+  } catch (error) {
+    console.log(error);
+  }
 }
 getData(URL);
