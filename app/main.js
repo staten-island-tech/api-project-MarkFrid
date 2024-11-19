@@ -1,4 +1,4 @@
-import "./style.css";
+/* import "./style.css";
 //api!!!!
 async function getData() {
   //fetch returns promise
@@ -18,3 +18,11 @@ async function getData() {
 }
 
 getData();
+ */
+
+const URL = "https://api.chess.com/pub/leaderboards";
+async function getData(URL) {
+  const response = await fetch(URL);
+  console.log(response);
+}
+getData(URL);
