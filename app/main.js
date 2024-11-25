@@ -1,52 +1,60 @@
 const URL = "https://api.chess.com/pub/leaderboards";
+let idCounter = 0;
+const man = "https://api.chess.com/pub/player/${card.username}";
+
+const DOMSelectors = {
+  container: document.querySelector(".container"),
+  live_blitz: document.querySelector(".live_blitz"),
+  daily: document.querySelector(".daily"),
+  daily960: document.querySelector(".daily960"),
+  rapid: document.querySelector(".rapid"),
+  live_bullet: document.querySelector(".live_bullet"),
+};
+
 async function getData(URL) {
   try {
     const response = await fetch(URL);
     const data = await response.json();
-    console.log(data.live_blitz[0].name);
     run(data);
-    displayCards(data);
+    getmore(man);
   } catch (error) {
-    console.log(error);
+    console.error("Error fetching data:", error);
   }
 }
 
-const DOMSelectors = {
-  container: document.querySelector(".container"),
-  daily: document.querySelector(".daily"),
-  daily960: document.querySelector(".daily960"),
-  live_rapid: document.querySelector(".live_rapid"),
-  live_blitz: document.querySelector(".live_blitz"),
-  live_bullet: document.querySelector(".live_bullet"),
-};
 function run(data) {
   DOMSelectors.live_blitz.addEventListener("click", () => {
-    for (let i = 0; i < 50; i++) {
-      console.log(data.live_blitz[i].name);
-    }
+    displayCards(data.live_blitz);
   });
 }
-getData(URL);
 
-function displayCards(data) {
+function displayCards(array) {
   DOMSelectors.container.innerHTML = "";
-
-  data.forEach((card) => {
+  array.forEach((card) => {
     idCounter += 1;
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
       `<div class="card" id="card-${idCounter}">
-        <h2 class="card-heading" id="heading-${idCounter}">${card.name}</h2>
-        <h3 class="card-subheading" id="subheading-${idCounter}">user: ${
-        card.username
-      }</h3>
-        <h3 class="card-rating">Price: $${card.rating.toFixed(2)}</h3>
+        <h2 class="card-heading">${card.username}</h2>
+        <h3 class="card-rating">Rating: ${card.score}</h3>
         ${
-          card.imageUrl
-            ? `<img class="card-img" id="img-${idCounter}" src="${card.imageUrl}" alt="${card.altText}">`
+          card.avatar
+            ? `<img class="card-img" src="${card.avatar}" alt="${card.username}">`
             : ""
         }
+        <button class = "btn learn more">Learn More</button> 
       </div>`
     );
   });
 }
+async function getmore(man) {
+  try {
+    const response = await fetch(man);
+    const data = await response.json();
+    run(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+getData(URL);
