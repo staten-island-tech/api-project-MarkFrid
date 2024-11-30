@@ -48,12 +48,16 @@ function displayCards(array) {
     idCounter += 1;
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<div class=""container flex flex=wrap items-center justify-around m-auto" " id="card-${idCounter}">
-        <h2 class="card-heading">${card.username}</h2>
-        <h3 class="card-rating">Rating: ${card.score}</h3>
+      `<div class="font-bungee" data-theme="mytheme""container flex flex=wrap items-center justify-around m-auto" " id="card-${idCounter}">
+        <h2 class="font-bungee card-heading" data-theme="mytheme">${
+          card.username
+        }</h2>
+        <h3 class="font-bungee card-rating" data-theme="mytheme">Rating: ${
+          card.score
+        }</h3>
         ${
           card.avatar
-            ? `<img class="card-img" src="${card.avatar}" alt="${card.username}">`
+            ? `<img class="font-bungee card-img" data-theme="mytheme" src="${card.avatar}" alt="${card.username}">`
             : `<p>No avatar available</p>`
         }
         <button class="btn learn-more" onclick="fetchMore('${
