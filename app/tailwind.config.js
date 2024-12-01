@@ -4,10 +4,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        poop: ['"Pixelify Sans"', "sans-serif"], // Custom font
+        poop: ['"Pixelify Sans"', "sans-serif"],
       },
       backgroundImage: {
-        custom: "url('/public/chessboard.PNG')", // Corrected path for your background image
+        "background chessbaoard": "url('/public/chessboard.PNG')",
       },
     },
   },
