@@ -1,23 +1,29 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 module.exports = {
   content: ["./index.html", "./main.js", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        bungee: ['"Bungee Spice"', "cursive"], // Add Bungee Spice
+        poop: ['"Pixelify Sans"', "sans-serif"], // Custom font
+      },
+      backgroundImage: {
+        custom: "url('/public/chessboard.PNG')", // Corrected path for your background image
       },
     },
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: {
-      mytheme: {
-        text: "#ffffff",
-        primary: "#69923e",
-        division: "#4e7837",
-        secondary: "#4b4847",
-        accent: "#2c2b29",
+    themes: [
+      {
+        mytheme: {
+          text: "#ffffff",
+          primary: "#69923e",
+          division: "#4e7837",
+          secondary: "#4b4847",
+          accent: "#2c2b29",
+          "base-100": "#ffffff",
+        },
       },
-    },
+    ],
   },
 };

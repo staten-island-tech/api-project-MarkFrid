@@ -1,30 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" class="font-bungee" data-theme="mytheme">
+<html lang="en" class="font-pixelify" data-theme="mytheme">
 
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap" rel="stylesheet" />
+  
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>hey</title>
-
+  <title>Chess Leaderboards</title>
+  <script type="module" src="/main.js" defer></script>
+  <!-- Include Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
+<body class="font-pixelify bg-custom bg-cover bg-fixed bg-no-repeat min-h-screen">
 
-<body class="font-bungee" data-theme="mytheme">
-  <script type="module" src="/main.js"></script>
-  <h1 class="text-3xl font-bold text-center mb-4 ">Hello Chess Players!</h1>
-  <button class="btn daily">Daily</button>
-  <button class="btn daily960">Daily960</button>
-  <button class="btn live_rapid">Rapid</button>
-  <button class="btn live_blitz">Blitz</button>
-  <button class="btn bullet">Bullet</button>
-  <div class="container mx-auto p-4 flex flex-wrap items-center justify-around m-auto">
+  <header class="text-center py-4 bg-opacity-75 bg-base-100">
+    <h1 class="text-3xl font-bold mb-2 text-primary">Hello Chess Players!</h1>
+    <p class="text-lg text-secondary">Explore top players across various chess formats.</p>
+  </header>
+
+  <nav class="flex justify-center space-x-4 mb-6">
+    <button class="btn btn-primary daily">Daily</button>
+    <button class="btn btn-primary daily960">Daily960</button>
+    <button class="btn btn-primary live_rapid">Rapid</button>
+    <button class="btn btn-primary live_blitz">Blitz</button>
+    <button class="btn btn-primary bullet">Bullet</button>
+  </nav>
+
+  <!-- Adjusted to a grid layout with 4 columns per row -->
+  <div class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <!-- Example Card -->
+    <div class="bg-white border border-gray-300 p-4 rounded-lg shadow-md">
+      <h2 class="text-xl font-bold text-gray-800 mb-2">Player Name</h2>
+      <p class="text-gray-600">Rating: 2500</p>
+      <p class="text-gray-600">Games Played: 300</p>
+    </div>
+    <!-- Add more cards here -->
   </div>
-
 </body>
 
 </html>

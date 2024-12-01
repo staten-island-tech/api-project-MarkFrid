@@ -21,6 +21,9 @@ async function getData(URL) {
 }
 
 function setupEventListeners(data) {
+  // Clear container on initial load
+  DOMSelectors.container.innerHTML = "";
+
   DOMSelectors.live_blitz.addEventListener("click", () => {
     displayCards(data.live_blitz);
   });
@@ -48,39 +51,33 @@ function displayCards(array) {
     idCounter += 1;
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<div class="font-bungee" data-theme="mytheme""container flex flex=wrap items-center justify-around m-auto" " id="card-${idCounter}">
-        <h2 class="font-bungee card-heading" data-theme="mytheme">${
+      `<div class="flex flex-col items-center justify-between w-full p-4 border border-gray-300 rounded-lg bg-white shadow-md" data-theme="mytheme" id="card-${idCounter}">
+        <h2 class="font-pixelify text-xl font-semibold text-primary mb-2">${
           card.username
         }</h2>
-        <h3 class="font-bungee card-rating" data-theme="mytheme">Rating: ${
+        <h3 class="font-pixelify text-lg text-gray-700 mb-2">Rating: ${
           card.score
         }</h3>
         ${
           card.avatar
-            ? `<img class="font-bungee card-img" data-theme="mytheme" src="${card.avatar}" alt="${card.username}">`
-            : `<p>No avatar available</p>`
+            ? `<img class="font-pixelify rounded-lg my-2" data-theme="mytheme" src="${card.avatar}" alt="${card.username}" />`
+            : `<p class="text-accent">No avatar available</p>`
         }
-        <button class="btn learn-more" onclick="fetchMore('${
-          card.username
-        }')">Learn More</button>
+        <button class="btn btn-secondary" id="button-${idCounter}">Go to profile</button>
       </div>`
     );
+
+    document
+      .querySelector(`#button-${idCounter}`)
+      .addEventListener("click", () => {
+        fetchMore(card.username);
+      });
   });
 }
 
-async function fetchMore(username) {
-  const playerURL = `https://api.chess.com/pub/player/${username}`;
-  try {
-    const response = await fetch(playerURL);
-    const playerData = await response.json();
-    alert(
-      `Player: ${playerData.username}\nName: ${
-        playerData.name || "Not available"
-      }\nCountry: ${playerData.country || "Unknown"}`
-    );
-  } catch (error) {
-    console.error("Error fetching player data:", error);
-  }
+function fetchMore(player) {
+  const profileURL = `https://www.chess.com/member/${player}`;
+  window.location.href = profileURL;
 }
 
 getData(URL);
