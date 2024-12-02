@@ -51,8 +51,8 @@ function displayCards(array) {
     idCounter += 1;
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<div class="flex flex-col items-center justify-between w-full p-4 border border-division rounded-lg bg-base-100 shadow-md" id="card-${idCounter}">
-        <h2 class="font-pixelify text-xl font-semibold text-primary mb-2">${
+      `<div class="flex flex-col items-center justify-between w-full p-4 border border-division rounded-lg bg-base-100 shadow-md" id="card-${idCounter}" >
+        <h2 class="font-pixelify text-xl font-semibold mb-2">${
           card.username
         }</h2>
         <h3 class="font-pixelify text-lg text-secondary mb-2">Rating: ${

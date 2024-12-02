@@ -1,6 +1,5 @@
-// tailwind.config.js
 module.exports = {
-  content: ["./index.html", "./main.js", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{html,js}"],
   theme: {
     extend: {
       fontFamily: {
@@ -13,16 +12,6 @@ module.exports = {
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: [
-      {
-        mytheme: {
-          text: "#ffffff",
-          primary: "#69923e",
-          division: "#4e7837",
-          secondary: "#4b4847",
-          accent: "#2c2b29",
-        },
-      },
-    ],
+    themes: ["light", "dark", "cupcake"],
   },
 };
