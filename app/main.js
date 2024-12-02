@@ -21,7 +21,6 @@ async function getData(URL) {
 }
 
 function setupEventListeners(data) {
-  // Clear container on initial load
   DOMSelectors.container.innerHTML = "";
 
   DOMSelectors.live_blitz.addEventListener("click", () => {
