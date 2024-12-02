@@ -15,8 +15,7 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="font-pixelify bg-background-chessbaoard bg-cover bg-fixed bg-no-repeat min-h-screen">
-
+<body class="font-pixelify bg-custom bg-cover bg-fixed text-base-content">
   <header class="text-center py-4 bg-opacity-75 bg-base-100">
     <h1 class="text-3xl font-bold mb-2 text-primary">Hello Chess Players!</h1>
     <p class="text-lg text-secondary">Explore top players across various chess formats.</p>
@@ -30,15 +29,12 @@
     <button class="btn btn-primary bullet">Bullet</button>
   </nav>
 
-  <!-- Adjusted to a grid layout with 4 columns per row -->
   <div class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    <!-- Example Card -->
-    <div class="bg-white border border-gray-300 p-4 rounded-lg shadow-md">
-      <h2 class="text-xl font-bold text-gray-800 mb-2">Player Name</h2>
-      <p class="text-gray-600">Rating: 2500</p>
-      <p class="text-gray-600">Games Played: 300</p>
+    <div class="bg-base-100 border border-division p-4 rounded-lg shadow-md">
+      <h2 class="text-xl font-bold text-primary mb-2">Player Name</h2>
+      <p class="text-secondary">Rating: 2500</p>
+      <p class="text-secondary">Games Played: 300</p>
     </div>
-    <!-- Add more cards here -->
   </div>
 </body>
 

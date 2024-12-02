@@ -7,7 +7,7 @@ module.exports = {
         poop: ['"Pixelify Sans"', "sans-serif"],
       },
       backgroundImage: {
-        "background chessbaoard": "url('/public/chessboard.PNG')",
+        "background chessbaoard": "url('/chessboard.PNG')",
       },
     },
   },
@@ -21,7 +21,6 @@ module.exports = {
           division: "#4e7837",
           secondary: "#4b4847",
           accent: "#2c2b29",
-          "base-100": "#ffffff",
         },
       },
     ],
