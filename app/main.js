@@ -54,13 +54,13 @@ function displayCards(array) {
         <h2 class="font-pixelify text-xl font-semibold mb-2 text-white">${
           card.username
         }</h2>
-        <h3 class="font-pixelify text-lg text-secondary mb-2 text-white">Rating: ${
+        <h3 class="font-pixelify text-lg mb-2 text-white">Rating: ${
           card.score
         }</h3>
         ${
           card.avatar
             ? `<img class="font-pixelify rounded-lg my-2" src="${card.avatar}" alt="${card.username}" />`
-            : `<p class="text-accent text-white">No avatar available</p>`
+            : `<p class=" text-white">No avatar available</p>`
         }
         <button class="btn btn-secondary rounded border-4 border-gray-700 text-white p-3" id="button-${idCounter}" style="background-color: #4e7837;">Go to profile</button>
       </div>`
