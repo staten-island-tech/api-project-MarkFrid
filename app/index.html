@@ -15,26 +15,21 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="font-pixelify bg-custom bg-cover bg-fixed text-base-content">
+<body class="font-pixelify  bg-cover bg-fixed text-base-content" style="background-color: #4b4847;">
   <header class="text-center py-4 bg-opacity-75 bg-base-100">
-    <h1 class="text-3xl font-bold mb-2 text-primary">Hello Chess Players!</h1>
-    <p class="text-lg text-secondary">Explore top players across various chess formats.</p>
+    <h1 class="text-3xl font-bold mb-2 text-white">Hello Chess Players!</h1>
+    <p class="text-lg text-white">Explore top players across various chess formats.</p>
   </header>
 
   <nav class="flex justify-center space-x-4 mb-6">
-    <button class="btn btn-primary daily">Daily</button>
-    <button class="btn btn-primary daily960">Daily960</button>
-    <button class="btn btn-primary live_rapid">Rapid</button>
-    <button class="btn btn-primary live_blitz">Blitz</button>
-    <button class="btn btn-primary bullet">Bullet</button>
+    <button class="btn btn-primary p-3 daily rounded border-4 border-gray-700 text-white" style="background-color: #4e7837;">Daily</button>
+    <button class="btn btn-primary p-3 daily960 rounded border-4 border-gray-700 text-white" style="background-color: #4e7837;">Daily960</button>
+    <button class="btn btn-primary p-3 live_rapid rounded border-4 border-gray-700 text-white" style="background-color: #4e7837;">Rapid</button>
+    <button class="btn btn-primary p-3 live_blitz rounded border-4 border-gray-700 text-white" style="background-color: #4e7837;">Blitz</button>
+    <button class="btn btn-primary p-3 bullet rounded border-4 border-gray-700 text-white" style="background-color: #4e7837;">Bullet</button>
   </nav>
 
   <div class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-    <div class="bg-base-100 border border-division p-4 rounded-lg shadow-md">
-      <h2 class="text-xl font-bold text-primary mb-2">Player Name</h2>
-      <p class="text-secondary">Rating: 2500</p>
-      <p class="text-secondary">Games Played: 300</p>
-    </div>
   </div>
 </body>
 
