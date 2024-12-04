@@ -44,13 +44,36 @@ function setupEventListeners(data) {
   });
 }
 
+async function fetchMore(player, cardId) {
+  const profileURL = `https://api.chess.com/pub/player/${player}`;
+  try {
+    const response = await fetch(profileURL);
+    const profileData = await response.json();
+
+    const title = profileData.title ? profileData.title : "No title available";
+    const card = document.querySelector(`#card-${cardId}`);
+    const titleElement = card.querySelector(".player-title");
+
+    if (titleElement) {
+      titleElement.textContent = `Title: ${title}`;
+    } else {
+      card.insertAdjacentHTML(
+        "beforeend",
+        `<p class="player-title text-white">Title: ${title}</p>`
+      );
+    }
+  } catch (error) {
+    console.error("Error fetching profile:", error);
+  }
+}
+
 function displayCards(array) {
   DOMSelectors.container.innerHTML = "";
   array.forEach((card) => {
     idCounter += 1;
     DOMSelectors.container.insertAdjacentHTML(
       "beforeend",
-      `<div class="flex flex-col items-center justify-between w-full p-4 rounded border-4 border-gray-700" id="card-${idCounter}" >
+      `<div class="flex flex-col items-center justify-between w-full p-4 rounded border-4 border-gray-700" id="card-${idCounter}">
         <h2 class="font-pixelify text-xl font-semibold mb-2 text-white">${
           card.username
         }</h2>
@@ -60,23 +83,18 @@ function displayCards(array) {
         ${
           card.avatar
             ? `<img class="font-pixelify rounded-lg my-2" src="${card.avatar}" alt="${card.username}" />`
-            : `<p class=" text-white">No avatar available</p>`
+            : `<p class="text-white">No avatar available</p>`
         }
-        <button class="btn btn-secondary rounded border-4 border-gray-700 text-white p-3" id="button-${idCounter}" style="background-color: #4e7837;">Go to profile</button>
+        <button class="btn btn-secondary rounded border-4 border-gray-700 text-white p-3" id="button-${idCounter}" style="background-color: #4e7837;">Fetch Title</button>
       </div>`
     );
 
     document
       .querySelector(`#button-${idCounter}`)
       .addEventListener("click", () => {
-        fetchMore(card.username);
+        fetchMore(card.username, idCounter);
       });
   });
-}
-
-function fetchMore(player) {
-  const profileURL = `https://www.chess.com/member/${player}`;
-  window.location.href = profileURL;
 }
 
 getData(URL);
